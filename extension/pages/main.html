@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../water.auto.css">
+</head>
+<body style="padding-left: 10px">
+    <h1>Infinite Campus Grades++</h1>
+
+    <div id="semChoose">
+        <p>Choose a semester:</p>
+        <label class="radio-inline">
+            <input type="radio" id="sem1" name="sem">Semester 1
+        </label>
+        <label class="radio-inline">
+            <input type="radio" id="sem2" name="sem">Semester 2
+        </label>
+        <button id="gpDefault" style="padding: 5px 10px; margin-left: 10px; display: inline" disabled>Set As Default</button>
+        <br><br>
+    </div>
+
+    <table id="courses_T">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Teacher</th>
+                <th>% Grade</th>
+                <th>Letter</th>
+                <th>Open Link</th>
+            </tr>
+        </thead>
+        <tbody id="courses"></tbody>
+    </table>
+
+    <div id="error" hidden>
+        <h3 style="color: red">Error: You are not logged into Infinite Campus</h3>
+        <h3 style="margin-top: 12px; margin-bottom: 24px">After logging in, refresh this page</h3>
+        <button id="login">Log in Here</button>
+        <button id="refresh">Refresh Page</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

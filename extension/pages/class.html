@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class</title>
+    <link rel="stylesheet" href="../water.auto.css">
+
+    <style>
+        /*back button*/
+        #header {
+            display: flex;
+            position: relative;
+        }
+        #back {
+            float: left;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            padding: 8px 16px;
+        }
+        #title {
+            text-align: center;
+            flex: 1 0 auto;
+            margin: 0;
+        }
+
+        th, td {
+            padding: 10px 10px;
+        }
+        summary {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        #assignAdd *, #catAdd *, #lowestCalc * {
+            display: inline;
+        }
+        #summary_T td:nth-of-type(5), #summary_T tr:last-child {
+            font-weight: bold;
+        }
+
+        /*tabs*/
+        :root {
+            --tBorder: #ccc;
+            --tHover: #ddd;
+            --tButton: #ccc;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --tBorder: #c0c0c0;
+                --tHover: #505050;
+                --tButton: #404040;
+            }
+        }
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid var(--tBorder);
+            border-radius: 6px 6px 0 0;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            padding: 10px;
+            margin: 8px 8px 0;
+            border-radius: 6px 6px 0 0;
+        }
+        .tab button:hover {
+            background-color: var(--tHover);
+        }
+        .tab button.active {
+            background-color: var(--tButton);
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid var(--tBorder);
+            border-radius: 0 0 6px 6px;
+            border-top: none;
+        }
+    </style>
+</head>
+<body style="padding-left: 10px">
+    <div id="header">
+        <button id="back">🠈 Home</button>
+        <h1 id="title">moment 2</h1>
+    </div>
+
+    <div id="summary_tabs">
+        <h2 style="margin-bottom: 10px">Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Weight</th>
+                    <th>Score</th>
+                    <th>Total</th>
+                    <th>Percent</th>
+                    <th>% Pts Diff</th>
+                </tr>
+            </thead>
+            <tbody id="summary_T"></tbody>
+        </table>
+        <br>
+
+        <div class="tab">
+            <button class="tablinks" id="addAssign">Add Assignment</button>
+            <button class="tablinks" id="addCat">Add Category</button>
+            <button class="tablinks" id="lowestGradeCalc" title="(uses original grade data)">Lowest Grade Calculator</button>
+            <button class="tablinks" id="gradeGraph" title="(uses original grade data)">Grade History Graph</button>
+        </div>
+
+        <!-- Tab divs -->
+        <div id="addAssignTab" class="tabcontent">
+            <p></p>
+            <div id="assignAdd">
+                <select id="catDropdown">
+                    <option>Choose a Category</option>
+                </select>
+                <p>&nbsp;</p>
+                <input type="text" id="assignName" placeholder="Assignment Name">
+                <p>&nbsp;</p>
+                <input type="number" id="assignScore" placeholder="Points Earned" min="0" style="width: 90px">
+                <p>&nbsp;</p>
+                <input type="number" id="assignTotal" placeholder="Total Points" min="0" style="width: 90px">
+                <p>&nbsp;</p>
+                <button id="assignSubmit">Submit</button>
+            </div>
+        </div>
+
+        <div id="addCatTab" class="tabcontent">
+            <p></p>
+            <div id="catAdd">
+                <input type="text" id="catName" placeholder="Category Name">
+                <p>&nbsp;</p>
+                <input type="number" id="catWeight" placeholder="Category Weight" min="0">
+                <p>%&nbsp;</p>
+                <button id="catSubmit" disabled>Submit</button>
+            </div>
+        </div>
+
+        <div id="lowestGradeCalcTab" class="tabcontent">
+            <p></p>
+            <div id="lowestCalc">
+                <select id="catDropdown2">
+                    <option>Choose a Category</option>
+                </select>
+                <p>&nbsp;</p>
+                <input type="number" id="lowestTotal" placeholder="Out of how many points?" min="0" style="width: 150px">
+                <p>&nbsp;</p>
+                <input type="number" id="lowestGrade" placeholder="Lowest Grade" min="0" style="width: 90px">
+                <p>%</p>
+            </div>
+            <p id="lowestResult" style="font-size: 1.2em"></p>
+        </div>
+
+        <div id="gradeGraphTab" class="tabcontent">
+            <p></p>
+            <canvas id="graph"></canvas>
+            <p></p>
+        </div>
+        <br>
+    </div>
+
+    <div id="error" hidden>
+        <h3 style="color: red">Error: You are not logged into Infinite Campus</h3>
+        <h3 style="margin-top: 12px; margin-bottom: 24px">After logging in, refresh this page</h3>
+        <button id="login">Log in Here</button>
+        <button id="refresh">Refresh Page</button>
+    </div>
+
+    <script src="class.js"></script>
+    <script src="../chart.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
