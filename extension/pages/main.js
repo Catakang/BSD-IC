@@ -125,6 +125,6 @@ function createHomeTable() {
         classButton.onclick = () => {
             window.open(`class.html?id=${courseId}&n=${courseName}&gp=${gpSelected}`, '_self')
         }
-        courseRow.insertCell(2).appendChild(classButton)
+        courseRow.insertCell(4).appendChild(classButton)
     }
 }
