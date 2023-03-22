@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Infinite Campus Grades++",
-  "description": "Alternative Version of BSD Infinite Campus (Modified BSD Catakang Edition)",
+  "description": "Alternative Version of FUSD Infinite Campus (Modified BSD Catakang Edition)",
   "version": "2.5",
   "browser_action": {
     "default_popup": "popup/popup.html",
