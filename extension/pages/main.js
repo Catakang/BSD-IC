@@ -110,10 +110,10 @@ function createHomeTable() {
         for (let grade of grades) {
             if (grade['taskName'] === 'Semester Average') {
                 courseRow.insertCell(2).innerHTML =
-                    (grade['progressPercent'] !== undefined ? grade['progressPercent'] : '-') + '%'
+                    (grade['progressPercent'] !== undefined ? grade['progressPercent'] : 'Oops! Your teacher ') + '%'
                 // percent is quarter end snapshot, progressPercent is now snapshot
                 courseRow.insertCell(3).innerHTML =
-                    grade['progressScore'] !== undefined ? grade['progressScore'] : '-'
+                    grade['progressScore'] !== undefined ? grade['progressScore'] : "hasn't set this up!"
                 break
             }
         }
