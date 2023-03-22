@@ -108,7 +108,7 @@ function createHomeTable() {
         // show current grade
         let grades = course['gradingTasks']
         for (let grade of grades) {
-            if (grade['taskName'] === 'Semester Final') {
+            if (grade['taskName'] === 'Semester Average') {
                 courseRow.insertCell(2).innerHTML =
                     (grade['progressPercent'] !== undefined ? grade['progressPercent'] : '-') + '%'
                 // percent is quarter end snapshot, progressPercent is now snapshot
