@@ -1,5 +1,6 @@
-**Note: This is not my project. I have simply forked this extension from jonathanjma to work for my school district. You should check out the original
-extension [here](https://github.com/jonathanjma/Infinite-Campus).**
+# **Note: This is not my project. I have simply forked this extension from jonathanjma to work for my school district. You should check out the original  extension [here](https://github.com/jonathanjma/Infinite-Campus).**
+
+
 # Infinite Campus Grades++
 
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/kfanojpgbklafmhammpnbajkkdpehign?style=plastic)
